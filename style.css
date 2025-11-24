@@ -1,20 +1,215 @@
-body {
-    scroll-behavior: smooth;
+/* Genel Ayarlar */
+:root {
+    --bg-dark: #0f172a;
+    --bg-darker: #020617;
+    --primary-cyan: #06b6d4; /* Neon Mavi */
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
 }
 
-header img {
-    width: 150px;
-    height: 150px;
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+}
+
+a { text-decoration: none; }
+
+/* Navbar Glassmorphism */
+.navbar {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-family: 'Fira Code', monospace;
+    color: var(--primary-cyan) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-cyan) !important;
+}
+
+/* Butonlar */
+.btn-cyan {
+    background-color: var(--primary-cyan);
+    color: #000;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-cyan:hover {
+    background-color: #22d3ee;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+}
+
+.btn-outline-cyan {
+    border: 2px solid var(--primary-cyan);
+    color: var(--primary-cyan);
+    font-weight: 600;
+}
+
+.btn-outline-cyan:hover {
+    background-color: var(--primary-cyan);
+    color: #000;
+}
+
+/* Hero Section */
+.text-gradient {
+    background: linear-gradient(45deg, #fff, var(--primary-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
     object-fit: cover;
+    border: 4px solid var(--primary-cyan);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+}
+
+.bg-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(15,23,42,0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Hakkımda & Bölümler */
+.bg-darker {
+    background-color: var(--bg-darker);
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-cyan);
+    bottom: 0;
+    left: 0; /* Center is better? left for now */
+}
+
+.section-title.text-center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Proje Kartları */
+.project-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-cyan);
+}
+
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
 }
 
 .card-img-top {
+    transition: transform 0.5s;
     height: 200px;
     object-fit: cover;
 }
 
-/* Hover efektleri */
-.card:hover {
-    transform: translateY(-5px);
+.project-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card-img-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.card-body {
+    color: var(--text-muted);
+}
+
+.card-title {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Skills Kutuları */
+.skill-box {
+    background: #1e293b;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 140px;
+    border: 1px solid transparent;
     transition: 0.3s;
+}
+
+.skill-box:hover {
+    border-color: var(--primary-cyan);
+    background: #172033;
+    transform: translateY(-5px);
+}
+
+.skill-box p {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Footer */
+.hover-cyan:hover {
+    color: var(--primary-cyan) !important;
+    transition: color 0.3s;
 }
